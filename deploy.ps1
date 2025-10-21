@@ -4,7 +4,7 @@
 $LocalBranch = "MOODLE_311_STABLE"                  # your local branch
 $RemoteName = "origin"                              # your fork or main repo
 $ServerUser = "cloud"                               # SSH username
-$ServerHost = "vm.smallville.cloud.bme.hu:15070"    # server address
+$ServerHost = "https://vm.smallville.cloud.bme.hu:15070"    # server address
 $ServerPath = "/var/www/html/moodle"                # path to Moodle on server
 $CommitMessage = if ($args.Length -gt 0) { $args[0] } else { "Auto commit from script $(Get-Date)" }
 
