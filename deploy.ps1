@@ -30,6 +30,6 @@ git push $RemoteName $LocalBranch
 # STEP 2: SSH into server and pull
 # -------------------------------
 Write-Host "Connecting to server and pulling changes..."
-ssh $ServerUser@$ServerHost -p 6906"cd $ServerPath && git fetch --all && git reset --hard $RemoteName/$LocalBranch && php admin/cli/purge_caches.php"
+ssh $ServerUser@$ServerHost -p 6906 "cd $ServerPath && git fetch --all && git reset --hard $RemoteName/$LocalBranch && php admin/cli/purge_caches.php"
 
 Write-Host "Done!"
