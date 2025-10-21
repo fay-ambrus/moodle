@@ -1,7 +1,7 @@
 define([], function() {
     return {
         init: function() {
-            document.getElementById('demo').addEventListener('click', () => {
+            document.getElementById('demo_button').addEventListener('click', () => {
                 alert('Action!');
             });
         }
