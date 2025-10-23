@@ -31,6 +31,8 @@ foreach ($users as $user) {
     $user->groups = implode(', ', $temp_array);
 }
 
+error_log('My variable: ' . print_r($users, false));
+
 echo $OUTPUT->header();
 echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users]);
 echo $OUTPUT->footer();
