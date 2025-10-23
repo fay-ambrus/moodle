@@ -31,6 +31,6 @@ git push $RemoteName $LocalBranch
 # STEP 2: SSH into server and pull
 # -------------------------------
 Write-Host "Connecting to server and pulling changes..."
-ssh $ServerUser@$ServerHost -p $ServerPort "cd $ServerPath && sudo git fetch --all && sudo git reset --hard $RemoteName/$LocalBranch && sudo php admin/cli/purge_caches.php && sudo grunt amd --force"
+ssh $ServerUser@$ServerHost -p $ServerPort "cd $ServerPath && sudo git fetch --all && sudo git reset --hard $RemoteName/$LocalBranch && sudo grunt amd --force --plugin=local_table_demo && sudo php admin/cli/purge_caches.php"
 
 Write-Host "Done!"

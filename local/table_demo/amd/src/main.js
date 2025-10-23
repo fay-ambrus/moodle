@@ -1,4 +1,4 @@
-define(['my-module'], function() {
+define([], function() {
     return {
         init: function() {
             console.log('JS init');
