@@ -34,3 +34,4 @@ Write-Host "Connecting to server and pulling changes..."
 ssh $ServerUser@$ServerHost -p $ServerPort "cd $ServerPath && sudo git fetch --all && sudo git reset --hard $RemoteName/$LocalBranch && sudo php admin/cli/purge_caches.php"
 
 Write-Host "Done!"
+[System.Console]::Beep()

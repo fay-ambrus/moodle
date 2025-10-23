@@ -31,8 +31,18 @@ foreach ($users as $user) {
     $user->groups = implode(', ', $temp_array);
 }
 
-error_log('My variable: ' . print_r($users, false));
+$users_array = array_map(function($u) {
+    return [
+        'id' => $u->id,
+        'email' => $u->email,
+        'firstname' => $u->firstname,
+        'lastname' => $u->lastname,
+        'groups' => $u->groups
+    ];
+}, $users);
+
+error_log('My variable: ' . print_r($users_array, false));
 
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users]);
+echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users_array]);
 echo $OUTPUT->footer();
