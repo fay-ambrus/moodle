@@ -17,6 +17,11 @@
                 <td>{{groups}}</td>
             </tr>
             {{/context}}
+            {{^context}}
+            <tr>
+                <td colspan="5">No users found</td>
+            </tr>
+            {{/context}}
         </tbody>
     </table>
 </div>

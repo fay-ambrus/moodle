@@ -35,8 +35,7 @@ $users_array = array_map(function($u) {
     return [
         'id' => $u->id,
         'email' => $u->email,
-        'firstname' => $u->firstname,
-        'lastname' => $u->lastname,
+        'name' => implode(' ', [$u->firstname, $u->lastname]),
         'groups' => $u->groups
     ];
 }, $users);
