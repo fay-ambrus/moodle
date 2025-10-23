@@ -2,6 +2,7 @@
 require('../../config.php');
 
 require_login();
+require_admin();
 
 $context = context_system::instance();
 $PAGE->set_context($context);
@@ -12,6 +13,24 @@ $PAGE->set_heading(get_string('title', 'local_table_demo'));
 $PAGE->requires->css(new moodle_url('https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css'));
 $PAGE->requires->js_call_amd('local_table_demo/main', 'init');
 
+global $DB;
+
+$users = $DB->get_records('user', ['deleted' => 0], 'email ASC',
+                        'id, email, firstname, lastname');
+
+// Add data on membership data to user
+foreach ($users as $user) {
+    $group_members = $DB->get_records('group_memebers', ['userid' => $user->id], null, 'groupid');
+    $temp_array = array();
+    foreach ($group_members as $group_memeber) {
+        $groups = $DB->get_records('groups', ['groupid' => $group_memeber->groupid], null, 'name');
+        foreach ($groups as $group) {
+            array_push( $temp_array, $group->name);
+        }
+    }
+    $user->groups = implode(', ', $temp_array);
+}
+
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_table_demo/main_page', []);
+echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users]);
 echo $OUTPUT->footer();
