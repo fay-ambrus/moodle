@@ -20,7 +20,7 @@ $users = $DB->get_records('user', ['deleted' => 0], 'email ASC',
 
 // Add data on membership data to user
 foreach ($users as $user) {
-    $group_members = $DB->get_records('groups_members', ['userid' => $user->id], null, 'groupid');
+    $groups_members = $DB->get_records('groups_members', ['userid' => $user->id], null, 'groupid');
     $temp_array = array();
     foreach ($groups_members as $group_memeber) {
         $groups = $DB->get_records('groups', ['groupid' => $group_memeber->groupid], null, 'name');
