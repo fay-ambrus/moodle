@@ -23,7 +23,7 @@ foreach ($users as $user) {
     $groups_members = $DB->get_records('groups_members', ['userid' => $user->id], null, 'groupid');
     $temp_array = array();
     foreach ($groups_members as $group_memeber) {
-        $groups = $DB->get_records('groups', ['groupid' => $group_memeber->groupid], null, 'name');
+        $groups = $DB->get_records('groups', ['id' => $group_memeber->groupid], null, 'name');
         foreach ($groups as $group) {
             array_push( $temp_array, $group->name);
         }
