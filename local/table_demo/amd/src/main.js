@@ -14,7 +14,6 @@ define(['datatables'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
-                paging: true,
                 searching: true,
                 ordering: true
             });
