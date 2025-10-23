@@ -44,5 +44,5 @@ $users_array = array_map(function($u) {
 error_log('Users: "\n\r\n\r\n\r\n\r" ' . print_r($users_array, false));
 
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users_array]);
+echo $OUTPUT->render_from_template('local_table_demo/main_page', $users_array);
 echo $OUTPUT->footer();
