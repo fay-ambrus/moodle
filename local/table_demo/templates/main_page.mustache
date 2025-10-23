@@ -9,22 +9,22 @@
             </tr>
         </thead>
         <tbody>
-            {{#context}}
+            {{#users}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{name}}</td>
                 <td>{{email}}</td>
                 <td>{{groups}}</td>
             </tr>
-            {{/context}}
-            {{^context}}
+            {{/users}}
+            {{^users}}
             <tr>
-                <td>{{context}}</td>
+                <td>{{users}}</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            {{/context}}
+            {{/users}}
         </tbody>
     </table>
 </div>
