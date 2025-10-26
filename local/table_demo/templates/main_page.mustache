@@ -10,12 +10,14 @@
         </thead>
         <tbody>
             {{#users}}
+            {{#.}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{name}}</td>
                 <td>{{email}}</td>
                 <td>{{groups}}</td>
             </tr>
+            {{/.}}
             {{/users}}
             {{^users}}
             <tr>
