@@ -18,7 +18,7 @@ global $DB;
 $users = $DB->get_records('user', ['deleted' => 0], 'email ASC',
                         'id, email, firstname, lastname');
 
-// Add data on membership data to user
+// Add data on membership to user
 foreach ($users as $user) {
     $groups_members = $DB->get_records('groups_members', ['userid' => $user->id], null, 'groupid');
     $temp_array = array();
@@ -41,8 +41,5 @@ $users_array = array_map(function($u) {
 }, $users);
 
 echo $OUTPUT->header();
-echo '<pre>';
-print_r($users_array);
-echo '</pre>';
 echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => array_values($users_array)]);
 echo $OUTPUT->footer();

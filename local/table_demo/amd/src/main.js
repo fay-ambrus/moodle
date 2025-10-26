@@ -15,7 +15,8 @@ define(['datatables'], function() {
         init: function() {
             $('#myTable').DataTable({
                 responsive: true,
-                paging: false
+                paging: false,
+                order: true
             });
         }
     };
