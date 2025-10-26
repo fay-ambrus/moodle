@@ -15,7 +15,7 @@ define(['datatables'], function() {
         init: function() {
             $('#myTable').DataTable({
                 initComplete: function () {
-                    console.log("init complete");
+                    console.log("init complete ");
                     let groupColumn = this.api().column(-1).select();
 
                     let title = groupColumn.footer().textContent;
