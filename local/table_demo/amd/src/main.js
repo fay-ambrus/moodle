@@ -15,11 +15,12 @@ define(['datatables'], function() {
         init: function() {
             $('#myTable').DataTable({
                 initComplete: function () {
-                    let groupColumn = this.api()
-                        .column(3)
-                        .select();
+                    console.log("init complete");
+                    let groupColumn = this.api().column(-1).select();
 
                     let title = groupColumn.footer().textContent;
+
+                    console.log(title);
 
                     // Create input element
                     let input = document.createElement('input');
