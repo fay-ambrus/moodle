@@ -40,9 +40,9 @@ $users_array = array_map(function($u) {
     ];
 }, $users);
 
-error_log('Users: "\n\r\n\r\n\r\n\r" ' . print_r($users, true));
-error_log('Users: "\n\r\n\r\n\r\n\r" ' . print_r($users_array, true));
-
 echo $OUTPUT->header();
+echo '<pre>';
+print_r($users_array);
+echo '</pre>';
 echo $OUTPUT->render_from_template('local_table_demo/main_page', ['users' => $users_array]);
 echo $OUTPUT->footer();
