@@ -1,11 +1,15 @@
 requirejs.config({
     paths: {
-        datatables: 'https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min'
+        datatables: 'https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min',
+        datatables_select: 'https://cdn.datatables.net/select/3.1.3/js/dataTables.select.min.js'
     },
     shim: {
         datatables: {
             deps: ['jquery'],
             exports: '$.fn.DataTable'
+        },
+        datatables_select: {
+            exports: '$'
         }
     }
 });

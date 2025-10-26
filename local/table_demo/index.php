@@ -11,6 +11,7 @@ $PAGE->set_title(get_string('title', 'local_table_demo'));
 $PAGE->set_heading(get_string('title', 'local_table_demo'));
 
 $PAGE->requires->css(new moodle_url('https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css'));
+$PAGE->requires->css(new moodle_url('https://cdn.datatables.net/select/3.1.3/css/select.dataTables.min.css'));
 $PAGE->requires->js_call_amd('local_table_demo/main', 'init');
 
 global $DB;
