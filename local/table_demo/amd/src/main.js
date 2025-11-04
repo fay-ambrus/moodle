@@ -9,7 +9,8 @@ requirejs.config({
             exports: '$.fn.DataTable'
         },
         datatables_select: {
-            exports: '$'
+            deps: ['datatables'],
+            exports: '$.fn.DataTable'
         }
     }
 });
@@ -19,7 +20,6 @@ define(['datatables'], function() {
         init: function() {
             $('#myTable').DataTable({
                 initComplete: function () {
-                    console.log("init complete ");
                     let groupColumn = this.api().column(3).select();
 
                     let title = groupColumn.footer().textContent;
