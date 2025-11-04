@@ -1,21 +1,4 @@
-requirejs.config({
-    paths: {
-        datatables: 'https://cdn.datatables.net/2.3.4/js/jquery.dataTables.min',
-        datatables_select: 'https://cdn.datatables.net/select/3.1.3/js/dataTables.select.min'
-    },
-    shim: {
-        datatables: {
-            deps: ['jquery'],
-            exports: '$.fn.DataTable'
-        },
-        datatables_select: {
-            deps: ['jquery', 'datatables'],
-            exports: '$.fn.DataTable'
-        }
-    }
-});
-
-define(['datatables', 'datatables_select'], function() {
+define(['jquery'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
