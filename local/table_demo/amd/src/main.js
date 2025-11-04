@@ -1,6 +1,6 @@
 requirejs.config({
     paths: {
-        datatables: 'https://cdn.datatables.net/2.3.4/js/jquery.dataTables.min',
+        datatables: 'https://cdn.datatables.net/2.3.4/js/dataTables.min',
         datatables_select: 'https://cdn.datatables.net/select/3.1.3/js/dataTables.select.min'
     },
     shim: {
