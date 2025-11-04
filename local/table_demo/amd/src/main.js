@@ -15,7 +15,7 @@ requirejs.config({
     }
 });
 
-define(['datatables', 'datatables_select'], function() {
+define(['datatables'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
