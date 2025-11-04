@@ -9,13 +9,13 @@ requirejs.config({
             exports: '$.fn.DataTable'
         },
         datatables_select: {
-            deps: ['datatables'],
-            exports: 'DataTable'
+            deps: ['jquery', 'datatables'],
+            exports: '$.fn.DataTable'
         }
     }
 });
 
-define(['datatables'], function() {
+define(['datatables', 'datatables_select'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
