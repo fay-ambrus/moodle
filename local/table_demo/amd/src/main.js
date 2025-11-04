@@ -9,8 +9,7 @@ requirejs.config({
             exports: '$.fn.DataTable'
         },
         datatables_select: {
-            deps: ['datatables'],
-            exports: '$.fn.DataTable'
+            deps: ['datatables']
         }
     }
 });
