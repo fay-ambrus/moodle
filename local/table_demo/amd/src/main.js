@@ -10,7 +10,7 @@ requirejs.config({
         },
         datatables_select: {
             deps: ['datatables'],
-            exports: '$.fn.DataTable'
+            exports: 'DataTable'
         }
     }
 });
