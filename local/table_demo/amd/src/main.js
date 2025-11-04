@@ -8,7 +8,10 @@ requirejs.config({
             deps: ['jquery'],
             exports: '$.fn.DataTable'
         },
-        datatables_select: ['jquery', 'datatables']
+        datatables_select: {
+            deps: ['jquery', 'datatables'],
+            exports: '$.fn.DataTable'
+        }
     }
 });
 
