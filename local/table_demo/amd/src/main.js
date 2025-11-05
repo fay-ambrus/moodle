@@ -49,7 +49,7 @@ define(['datatables', 'jquery'], function() {
                     let dropdown = $('<div class="filter-dropdown"></div>');
                     let select = $('<select multiple></select>');
                     groups.forEach(v => {
-                        select.append(`<option value="${v}">${v}</option>`);
+                        select.appendChild(`<option value="${v}">${v}</option>`);
                     });
 
                     dropdown.append(select);
