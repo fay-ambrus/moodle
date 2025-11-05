@@ -64,12 +64,14 @@ define(['datatables', 'jquery'], function() {
                     groupColumn.header().appendChild(dropdown);
 
                     select.addEventListener('change', () => {
-                        let selected = $(this).val();
-                        if (!selected || selected.length === 0) {
-                            groupColumn.search('').draw();
+                        const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+                        console.log(selected);
+                        if (selected.length === 0) {
+                            column.search('').draw();
                         } else {
-                            let regex = selected.map(v => `^${v}$`).join('|');
-                            groupColumn.search(regex, true, false).draw();
+                            const regex = '^(' + selected.join('|') + ')$';
+                            console.log(regex);
+                            column.search(regex, true, false).draw();
                         }
                     });
                     console.log("init complete");
