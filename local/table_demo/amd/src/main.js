@@ -16,20 +16,51 @@ define(['datatables'], function() {
             $('#myTable').DataTable({
                 ordering: false,
                 initComplete: function () {
-                    console.log("hello");
-                    let groupColumn = this.api().column(3);
+                    // Add search box to name column
+                    let nameColumn = this.api().column(1);
 
-                    let title = groupColumn.header().textContent;
+                    let title = nameColumn.header().textContent;
 
-                    // Create input element
                     let input = document.createElement('input');
                     input.placeholder = title;
-                    groupColumn.header().appendChild(input);
+                    nameColumn.header().appendChild(input);
 
-                    // Event listener for user input
                     input.addEventListener('keyup', () => {
-                        if (groupColumn.search() !== this.value) {
-                            groupColumn.search(input.value).draw();
+                        if (nameColumn.search() !== this.value) {
+                            nameColumn.search(input.value).draw();
+                        }
+                    });
+
+
+
+                    // Add dropdown selector to group membership column
+                    let groupColumn = this.api().column(3);
+
+                    let groups = new Set();
+
+                    groupColumn.data().each(function (d) {
+                        if (d) {
+                            let split = d.split(', ');
+                            split.forEach(v => groups.add(v));
+                        }
+                    });
+
+                    let dropdown = $('<div class="filter-dropdown"></div>');
+                    let select = $('<select multiple></select>');
+                    groups.forEach(v => {
+                        select.append(`<option value="${v}">${v}</option>`);
+                    });
+
+                    dropdown.append(select);
+                    groupColumn.header().append(dropdown);
+
+                    select.on('change', function () {
+                        let selected = $(this).val();
+                        if (!selected || selected.length === 0) {
+                            column.search('').draw();
+                        } else {
+                            let regex = selected.map(v => `^${v}$`).join('|');
+                            column.search(regex, true, false).draw();
                         }
                     });
                 },
