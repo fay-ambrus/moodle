@@ -53,7 +53,8 @@ define(['datatables', 'jquery'], function() {
                     });
 
                     dropdown.append(select);
-                    groupColumn.header().appendChild(dropdown);
+                    console.log(select, typeof select, dropdown, typeof dropdown);
+                    groupColumn.header().append(dropdown);
 
                     select.on('change', function () {
                         let selected = $(this).val();
