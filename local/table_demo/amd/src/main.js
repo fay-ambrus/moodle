@@ -10,7 +10,7 @@ requirejs.config({
     }
 });
 
-define(['datatables', 'jquery', 'local_table_demo/table-utils'], function() {
+define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(DataTable, $, tableUtils) {
     return {
         init: function() {
             $('#demoTable').DataTable({
@@ -39,7 +39,7 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function() {
                         } else {
                             nameColumn.nodes().to$().removeClass('highlight');
                         }
-                        refreshSearchCriteria('search', title, input.value);
+                        tableUtils.refreshSearchCriteria('search', title, input.value);
                     });
 
 
@@ -88,7 +88,7 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function() {
                         } else {
                             groupColumn.nodes().to$().addClass('highlight');
                         }
-                        refreshSearchCriteria('selectMultiple', title, selected.join(', '));
+                        tableUtils.srefreshSearchCriteria('selectMultiple', title, selected.join(', '));
                     });
                     console.log("init complete");
                 },
