@@ -1,19 +1,14 @@
-/*requirejs.config({
+requirejs.config({
     paths: {
-        datatables: 'https://cdn.datatables.net/2.3.4/js/dataTables.min',
-        datatables_select: 'https://cdn.datatables.net/select/3.1.3/js/dataTables.select.min'
+        datatables: 'https://cdn.datatables.net/v/dt/dt-2.3.4/sl-3.1.3/datatables.min'
     },
     shim: {
         datatables: {
             deps: ['jquery'],
             exports: '$.fn.DataTable'
-        },
-        datatables_select: {
-            deps: ['datatables'],
-            exports: '$.fn.DataTable'
         }
     }
-});*/
+});
 
 define(['datatables'], function() {
     return {
