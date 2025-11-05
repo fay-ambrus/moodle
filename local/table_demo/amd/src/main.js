@@ -14,13 +14,12 @@ define(['datatables'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
+                order: false,
                 initComplete: function () {
                     console.log("hello");
                     let groupColumn = this.api().column(3);
 
                     let title = groupColumn.header().textContent;
-
-                    console.log(title);
 
                     // Create input element
                     let input = document.createElement('input');
