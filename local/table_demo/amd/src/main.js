@@ -63,6 +63,7 @@ define(['datatables'], function() {
                             column.search(regex, true, false).draw();
                         }
                     });
+                    console.log("init complete");
                 },
             });
         }
