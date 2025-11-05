@@ -46,17 +46,26 @@ define(['datatables', 'jquery'], function() {
                         }
                     });
 
-                    let dropdown = $('<div class="filter-dropdown"></div>');
-                    let select = $('<select multiple></select>');
+                    const dropdown = document.createElement('div');
+                    dropdown.className = 'filter-dropdown';
+
+                    const select = document.createElement('select');
+                    select.multiple = true;
+                    //select.size = Math.min(5, uniqueValues.length);
+                    //select.classList.add('column-filter');
+
                     groups.forEach(v => {
-                        select.appendChild(`<option value="${v}">${v}</option>`);
+                            const option = document.createElement('option');
+                            option.value = v;
+                            option.textContent = v;
+                            select.appendChild(option);
                     });
 
-                    dropdown.append(select);
+                    dropdown.appendChild(select);
                     console.log(select, typeof select, dropdown, typeof dropdown);
-                    groupColumn.header().append(dropdown);
+                    groupColumn.header().appendChild(dropdown);
 
-                    select.on('change', function () {
+                    select.on('addEventListener', () => {
                         let selected = $(this).val();
                         if (!selected || selected.length === 0) {
                             column.search('').draw();
