@@ -66,7 +66,6 @@ define(['datatables', 'jquery'], function() {
                     });
 
                     dropdown.appendChild(select);
-                    console.log(select, typeof select, dropdown, typeof dropdown);
                     groupColumn.header().appendChild(dropdown);
 
                     select.addEventListener('change', () => {
