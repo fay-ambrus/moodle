@@ -31,10 +31,10 @@ define(['datatables', 'jquery'], function() {
                         if (nameColumn.search() !== this.value) {
                             nameColumn.search(input.value).draw();
                         }
-                        if (input.value && input.value !== '') {
-                            groupColumn.nodes().to$().addClass('highlight');
+                        if (input.value) {
+                            nameColumn.nodes().to$().addClass('highlight');
                         } else {
-                            groupColumn.nodes().to$().removeClass('highlight');
+                            nameColumn.nodes().to$().removeClass('highlight');
                         }
                     });
 
