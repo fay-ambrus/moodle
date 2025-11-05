@@ -1,4 +1,4 @@
-requirejs.config({
+/*requirejs.config({
     paths: {
         datatables: 'https://cdn.datatables.net/2.3.4/js/dataTables.min',
         datatables_select: 'https://cdn.datatables.net/select/3.1.3/js/dataTables.select.min'
@@ -13,9 +13,9 @@ requirejs.config({
             exports: '$.fn.DataTable'
         }
     }
-});
+});*/
 
-define(['datatables', 'datatables_select'], function() {
+define(['datatables'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
