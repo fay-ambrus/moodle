@@ -65,7 +65,7 @@ define(['datatables', 'jquery'], function() {
                     console.log(select, typeof select, dropdown, typeof dropdown);
                     groupColumn.header().appendChild(dropdown);
 
-                    select.on('addEventListener', () => {
+                    select.addEventListener('change', () => {
                         let selected = $(this).val();
                         if (!selected || selected.length === 0) {
                             column.search('').draw();
