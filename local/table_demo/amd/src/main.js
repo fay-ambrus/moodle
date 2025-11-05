@@ -10,11 +10,12 @@ requirejs.config({
     }
 });
 
-define(['datatables'], function() {
+define(['datatables', 'jquery'], function() {
     return {
         init: function() {
             $('#myTable').DataTable({
                 ordering: false,
+                paging: false,
                 initComplete: function () {
                     // Add search box to name column
                     let nameColumn = this.api().column(1);
