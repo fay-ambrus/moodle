@@ -16,6 +16,7 @@ define(['datatables', 'jquery'], function() {
             $('#myTable').DataTable({
                 ordering: false,
                 paging: false,
+                search: false,
                 initComplete: function () {
                     // Add search box to name column
                     let nameColumn = this.api().column(1);
@@ -67,11 +68,11 @@ define(['datatables', 'jquery'], function() {
                         const selected = Array.from(select.selectedOptions).map(opt => opt.value);
                         console.log(selected);
                         if (selected.length === 0) {
-                            column.search('').draw();
+                            groupColumn.search('').draw();
                         } else {
                             const regex = '^(' + selected.join('|') + ')$';
                             console.log(regex);
-                            column.search(regex, true, false).draw();
+                            groupColumn.search(regex, true, false).draw();
                         }
                     });
                     console.log("init complete");
