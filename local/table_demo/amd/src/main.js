@@ -10,7 +10,7 @@ requirejs.config({
     }
 });
 
-define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTable, $, tableUtils) {
+define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(/*dataTable, $, tableUtils*/) {
     return {
         init: function() {
             $('#demoTable').DataTable({
