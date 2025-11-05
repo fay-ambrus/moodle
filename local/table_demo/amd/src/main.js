@@ -16,7 +16,6 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(/*data
             $('#demoTable').DataTable({
                 ordering: false,
                 paging: false,
-                searching: false,
                 initComplete: function () {
                     // Add search box to name column
                     let nameColumn = this.api().column(1);
