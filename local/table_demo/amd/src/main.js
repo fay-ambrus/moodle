@@ -31,6 +31,11 @@ define(['datatables', 'jquery'], function() {
                         if (nameColumn.search() !== this.value) {
                             nameColumn.search(input.value).draw();
                         }
+                        if (input.value && input.value !== '') {
+                            groupColumn.nodes().to$().addClass('highlight');
+                        } else {
+                            groupColumn.nodes().to$().removeClass('highlight');
+                        }
                     });
 
 
@@ -66,13 +71,13 @@ define(['datatables', 'jquery'], function() {
 
                     select.addEventListener('change', () => {
                         const selected = Array.from(select.selectedOptions).map(opt => opt.value);
-                        console.log(selected);
                         if (selected.length === 0) {
                             groupColumn.search('').draw();
+                            groupColumn.nodes().to$().removeClass('highlight');
                         } else {
                             const regex = '^(' + selected.join('|') + ')$';
-                            console.log(regex);
                             groupColumn.search(regex, true, false).draw();
+                            groupColumn.nodes().to$().addClass('highlight');
                         }
                     });
                     console.log("init complete");
