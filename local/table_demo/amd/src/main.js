@@ -38,7 +38,7 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTa
                         } else {
                             nameColumn.nodes().to$().removeClass('highlight');
                         }
-                        tableUtils.refreshSearchCriteria('search', nameColumn.header().textContent, input.value);
+                        tableUtils.refreshSearchCriteria('search', "Full name", input.value);
                     });
 
 
@@ -87,7 +87,7 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTa
                         } else {
                             groupColumn.nodes().to$().addClass('highlight');
                         }
-                        tableUtils.refreshSearchCriteria('selectMultiple', groupColumn.header().textContent, selected.join(', '));
+                        tableUtils.refreshSearchCriteria('selectMultiple', "Group memberships", selected.join(', '));
                     });
                     console.log("init complete");
                 },
