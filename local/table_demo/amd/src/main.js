@@ -51,8 +51,6 @@ define(['datatables', 'jquery'], function() {
 
                     const select = document.createElement('select');
                     select.multiple = true;
-                    //select.size = Math.min(5, uniqueValues.length);
-                    //select.classList.add('column-filter');
 
                     groups.forEach(v => {
                             const option = document.createElement('option');
@@ -68,10 +66,10 @@ define(['datatables', 'jquery'], function() {
                     select.addEventListener('change', () => {
                         let selected = $(this).val();
                         if (!selected || selected.length === 0) {
-                            column.search('').draw();
+                            groupColumn.search('').draw();
                         } else {
                             let regex = selected.map(v => `^${v}$`).join('|');
-                            column.search(regex, true, false).draw();
+                            groupColumn.search(regex, true, false).draw();
                         }
                     });
                     console.log("init complete");
