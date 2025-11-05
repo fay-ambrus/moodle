@@ -17,7 +17,7 @@ define(['datatables'], function() {
                 select: true,
                 initComplete: function () {
                     console.log("hello");
-                    let groupColumn = this.column(3).select();
+                    let groupColumn = this.column(3);
 
                     let title = groupColumn.footer().textContent;
 
