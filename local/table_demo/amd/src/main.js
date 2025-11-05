@@ -74,7 +74,7 @@ define(['datatables', 'jquery'], function() {
                             column.search(regex, true, false).draw();
                         }
                     });
-                    console.log("init complete...");
+                    console.log("init complete");
                 },
             });
         }
