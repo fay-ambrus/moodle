@@ -10,7 +10,7 @@ requirejs.config({
     }
 });
 
-define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(/*dataTable, $, tableUtils*/) {
+define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTable, $, tableUtils) {
     return {
         init: function() {
             $('#demoTable').DataTable({
@@ -33,12 +33,12 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(/*data
                         }
 
                         // highlight and list on criteria
-                        /*if (input.value) {
+                        if (input.value) {
                             nameColumn.nodes().to$().addClass('highlight');
                         } else {
                             nameColumn.nodes().to$().removeClass('highlight');
-                        }*/
-                        //tableUtils.refreshSearchCriteria('search', title, input.value);
+                        }
+                        tableUtils.refreshSearchCriteria('search', title, input.value);
                     });
 
 
@@ -81,13 +81,13 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(/*data
                             groupColumn.search(regex, true, false).draw();
                         }
 
-                        /*// highlight and list on criteria
+                        // highlight and list on criteria
                         if (selected.length === 0) {
                             groupColumn.nodes().to$().removeClass('highlight');
                         } else {
                             groupColumn.nodes().to$().addClass('highlight');
-                        }*/
-                        //tableUtils.refreshSearchCriteria('selectMultiple', title, selected.join(', '));
+                        }
+                        tableUtils.refreshSearchCriteria('selectMultiple', title, selected.join(', '));
                     });
                     console.log("init complete");
                 },
