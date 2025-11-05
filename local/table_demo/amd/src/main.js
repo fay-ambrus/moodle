@@ -18,7 +18,7 @@ define(['datatables'], function() {
                     console.log("hello");
                     let groupColumn = this.api().column(3);
 
-                    let title = groupColumn.footer().textContent;
+                    let title = groupColumn.header().textContent;
 
                     console.log(title);
 
