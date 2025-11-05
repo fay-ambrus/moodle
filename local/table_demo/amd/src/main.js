@@ -10,13 +10,13 @@ requirejs.config({
     }
 });
 
-define(['datatables', 'jquery'], function() {
+define(['datatables', 'jquery', 'local_table_demo/table-utils'], function() {
     return {
         init: function() {
-            $('#myTable').DataTable({
+            $('#demoTable').DataTable({
                 ordering: false,
                 paging: false,
-                search: false,
+                searching: false,
                 initComplete: function () {
                     // Add search box to name column
                     let nameColumn = this.api().column(1);
@@ -28,21 +28,25 @@ define(['datatables', 'jquery'], function() {
                     nameColumn.header().appendChild(input);
 
                     input.addEventListener('keyup', () => {
+                        // search
                         if (nameColumn.search() !== this.value) {
                             nameColumn.search(input.value).draw();
                         }
+
+                        // highlight and list on criteria
                         if (input.value) {
                             nameColumn.nodes().to$().addClass('highlight');
                         } else {
                             nameColumn.nodes().to$().removeClass('highlight');
                         }
+                        refreshSearchCriteria('search', title, input.value);
                     });
 
 
 
                     // Add dropdown selector to group membership column
                     let groupColumn = this.api().column(3);
-
+                    title = nameColumn.header().textContent;
                     let groups = new Set();
 
                     groupColumn.data().each(function (d) {
@@ -70,14 +74,21 @@ define(['datatables', 'jquery'], function() {
 
                     select.addEventListener('change', () => {
                         const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+                        // search
                         if (selected.length === 0) {
                             groupColumn.search('').draw();
-                            groupColumn.nodes().to$().removeClass('highlight');
                         } else {
                             const regex = '^(' + selected.join('|') + ')$';
                             groupColumn.search(regex, true, false).draw();
+                        }
+
+                        // highlight and list on criteria
+                        if (selected.length === 0) {
+                            groupColumn.nodes().to$().removeClass('highlight');
+                        } else {
                             groupColumn.nodes().to$().addClass('highlight');
                         }
+                        refreshSearchCriteria('selectMultiple', title, selected.join(', '));
                     });
                     console.log("init complete");
                 },
