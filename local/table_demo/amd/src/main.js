@@ -53,7 +53,7 @@ define(['datatables', 'jquery'], function() {
                     });
 
                     dropdown.append(select);
-                    groupColumn.header().append(dropdown);
+                    groupColumn.header().appendChild(dropdown);
 
                     select.on('change', function () {
                         let selected = $(this).val();
