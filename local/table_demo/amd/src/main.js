@@ -38,14 +38,14 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTa
                         } else {
                             nameColumn.nodes().to$().removeClass('highlight');
                         }
-                        tableUtils.refreshSearchCriteria('search', title, input.value);
+                        tableUtils.refreshSearchCriteria('search', nameColumn.header().textContent, input.value);
                     });
 
 
 
                     // Add dropdown selector to group membership column
                     let groupColumn = this.api().column(3);
-                    title = nameColumn.header().textContent;
+
                     let groups = new Set();
 
                     groupColumn.data().each(function (d) {
@@ -87,7 +87,7 @@ define(['datatables', 'jquery', 'local_table_demo/table-utils'], function(dataTa
                         } else {
                             groupColumn.nodes().to$().addClass('highlight');
                         }
-                        tableUtils.refreshSearchCriteria('selectMultiple', title, selected.join(', '));
+                        tableUtils.refreshSearchCriteria('selectMultiple', groupColumn.header().textContent, selected.join(', '));
                     });
                     console.log("init complete");
                 },
