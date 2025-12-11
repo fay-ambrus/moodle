@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <XMLDB PATH="local/simple_pay_demo/db" VERSION="2025120901" COMMENT="Install DB for simple_pay_demo plugin">
-    <TABLE NAME="local_simple_pay_demo" COMMENT="Payment requests">
-        <FIELDS>
-            <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-            <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User who must pay"/>
-            <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true" COMMENT="Amount to pay (in HUF)"/>
-            <FIELD NAME="description" TYPE="text" NOTNULL="false"/>
-            <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="pending"/>
-            <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
-        </FIELDS>
-        <KEYS>
-            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-            <KEY NAME="useridx" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
-        </KEYS>
-    </TABLE>
+    <TABLES>
+        <TABLE NAME="local_simple_pay_demo" COMMENT="Payment requests">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User who must pay"/>
+                <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true" COMMENT="Amount to pay (in HUF)"/>
+                <FIELD NAME="description" TYPE="text" NOTNULL="false"/>
+                <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="pending"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="useridx" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
 </XMLDB>
