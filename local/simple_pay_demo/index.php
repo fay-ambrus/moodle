@@ -37,11 +37,20 @@ $trx->addGroupData('urls', 'fail', $config['URLS_FAIL']);
 $trx->addGroupData('urls', 'cancel', $config['URLS_CANCEL']);
 $trx->addGroupData('urls', 'timeout', $config['URLS_TIMEOUT']);
 
+// todo: itt miket kéne még, hogyan kéne még? valami törvényi előírással complyolni kell amúgy
 $trx->addGroupData('invoice', 'name', fullname($USER));
-$trx->addGroupData('invoice', 'country', $USER->country);
-$trx->addGroupData('invoice', 'city', $USER->city); // todo: itt miket kéne még, hogyan kéne még?
-$trx->addGroupData('invoice', 'address', $USER->address);
-$trx->addGroupData('invoice', 'phone', $USER->phone);
+if (isset($USER->country)) {
+    $trx->addGroupData('invoice', 'country', $USER->country);
+}
+if (isset($USER->city)) {
+    $trx->addGroupData('invoice', 'city', $USER->city);
+}
+if (isset($USER->address)) {
+    $trx->addGroupData('invoice', 'address', $USER->address);
+}
+if (isset($USER->phone)) {
+    $trx->addGroupData('invoice', 'phone', $USER->phone);
+}
 
 $trx->formDetails['element'] = 'button';
 
