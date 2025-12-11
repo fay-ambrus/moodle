@@ -2,6 +2,7 @@
 require('../../config.php');
 require_once(__DIR__.'/src/config.php');
 require_once(__DIR__.'/src/SimplePayV21.php');
+require_once(__DIR__.'/src/invocie_form.php');
 
 require_login();
 
@@ -35,37 +36,54 @@ $trx->addGroupData('urls', 'success', $config['URLS_SUCCESS']);
 $trx->addGroupData('urls', 'fail', $config['URLS_FAIL']);
 $trx->addGroupData('urls', 'cancel', $config['URLS_CANCEL']);
 $trx->addGroupData('urls', 'timeout', $config['URLS_TIMEOUT']);
+$trx->addData('threeDSReqAuthMethod', '02');
 
-// todo: itt miket kéne még, hogyan kéne még? valami törvényi előírással complyolni kell amúgy
-$trx->addGroupData('invoice', 'name', fullname($USER));
-if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
-    debugging('country: ' . $USER->country);
-    debugging('city: ' . $USER->city);
-    debugging('address: ' . $USER->address);
-    $trx->addGroupData('invoice', 'country', $USER->country);
-    $trx->addGroupData('invoice', 'city', $USER->city);
-    $trx->addGroupData('invoice', 'address', $USER->address);
-    $trx->addData('threeDSReqAuthMethod', '02');
-} else {
-    debugging('not all data is present!');
-    $trx->addData('maySelectInvoice', true);
-    $trx->addData('threeDSReqAuthMethod', '01');
-}
+$trx->formDetails['element'] = 'button';
 
 if (isset($USER->phone)) {
     $trx->addGroupData('invoice', 'phone', $USER->phone);
 }
 
-$trx->formDetails['element'] = 'button';
-
-$trx->runStart();
-$trx->getHtmlForm();
-
-$returnData = $trx->getReturnData();
-
 echo $OUTPUT->header();
-echo $trx->returnData['form'];
-echo html_writer::empty_tag('br');
-echo html_writer::empty_tag('br');
-echo var_export($returnData, true);
+
+// If billing data is not set, show a form to collect it
+if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
+    $form = new \local\simple_pay_demo\billing_form();
+
+    if ($form->is_cancelled()) {
+        redirect(new moodle_url('/my/'));
+    }
+
+    else if ($data = $form->get_data()) {
+        $trx->addGroupData('invoice', 'country', $data->country);
+        $trx->addGroupData('invoice', 'state', $data->state);
+        $trx->addGroupData('invoice', 'city', $data->city);
+        $trx->addGroupData('invoice', 'address', $data->address);
+
+        $trx->runStart();
+        $trx->getHtmlForm();
+        $returnData = $trx->getReturnData();
+
+        echo $trx->returnData['form'];
+        echo html_writer::empty_tag('br');
+        echo html_writer::empty_tag('br');
+        echo var_export($returnData, true);
+    }
+}
+// If billing data is present, then set it andproceed with the transaction
+else {
+    $trx->addGroupData('invoice', 'country', $USER->country);
+    $trx->addGroupData('invoice', 'city', $USER->city);
+    $trx->addGroupData('invoice', 'address', $USER->address);
+
+    $trx->runStart();
+    $trx->getHtmlForm();
+    $returnData = $trx->getReturnData();
+
+    echo $trx->returnData['form'];
+    echo html_writer::empty_tag('br');
+    echo html_writer::empty_tag('br');
+    echo var_export($returnData, true);
+}
+
 echo $OUTPUT->footer();
