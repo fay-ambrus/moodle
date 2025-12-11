@@ -61,5 +61,7 @@ $returnData = $trx->getReturnData();
 
 echo $OUTPUT->header();
 echo $trx->returnData['form'];
+echo html_writer::empty_tag('br');
+echo html_writer::empty_tag('br');
 echo var_export($returnData, true);
 echo $OUTPUT->footer();
