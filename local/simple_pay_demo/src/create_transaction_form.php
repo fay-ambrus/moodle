@@ -21,12 +21,12 @@ class create_transaction_form extends \moodleform {
 		// add description
 		$mform->addElement('text', 'description', get_string('description', 'local_simple_pay_demo'));
 		$mform->setType('description', PARAM_TEXT);
-        $mform->addRule('city', get_string('required_transaction', 'local_simple_pay_demo'), 'required');
+        $mform->addRule('description', get_string('required_transaction', 'local_simple_pay_demo'), 'required');
 
 		// add amount
 		$mform->addElement('text', 'amount', get_string('amount', 'local_simple_pay_demo'));
 		$mform->setType('amount', PARAM_INT);
-        $mform->addRule('city', get_string('required_transaction', 'local_simple_pay_demo'), 'required');
+        $mform->addRule('amount', get_string('required_transaction', 'local_simple_pay_demo'), 'required');
         $mform->addRule('amount', get_string('required_minimal_value', 'local_simple_pay_demo'), 'min', 1);
         $mform->addRule('amount', 'Must be an integer', 'numeric');
 
