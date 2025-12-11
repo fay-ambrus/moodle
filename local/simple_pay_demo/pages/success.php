@@ -1,7 +1,7 @@
 <?php
 require('../../../config.php');
-require_once(__DIR__.'/src/config.php');
-require_once(__DIR__.'/src/SimplePayV21.php');
+require_once(__DIR__.'/../src/config.php');
+require_once(__DIR__.'/../src/SimplePayV21.php');
 
 require_login();
 $context = context_system::instance();
