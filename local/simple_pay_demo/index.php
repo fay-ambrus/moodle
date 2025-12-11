@@ -60,6 +60,7 @@ if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
         $trx->addGroupData('invoice', 'country', $data->country);
         $trx->addGroupData('invoice', 'state', $data->state);
         $trx->addGroupData('invoice', 'city', $data->city);
+        $trx->addGroupData('invoice', 'zip', $data->zip);
         $trx->addGroupData('invoice', 'address', $data->address);
 
         $trx->runStart();
