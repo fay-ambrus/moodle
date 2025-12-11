@@ -2,7 +2,7 @@
 require('../../config.php');
 require_once(__DIR__.'/src/config.php');
 require_once(__DIR__.'/src/SimplePayV21.php');
-require_once(__DIR__.'/src/invocie_form.php');
+require_once(__DIR__.'/src/billing_form.php');
 
 require_login();
 
