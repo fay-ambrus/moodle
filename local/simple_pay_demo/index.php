@@ -44,10 +44,12 @@ if (isset($USER->phone)) {
     $trx->addGroupData('invoice', 'phone', $USER->phone);
 }
 
+$trx->addGroupData('invoice', 'name', fullname($USER));
+
 echo $OUTPUT->header();
 
 // If billing data is not set, show a form to collect it
-if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
+if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
     $form = new \local\simple_pay_demo\billing_form();
 
     if ($form->is_cancelled()) {
