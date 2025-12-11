@@ -47,6 +47,7 @@ if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
     $trx->addGroupData('invoice', 'address', $USER->address);
     $trx->addData('threeDSReqAuthMethod', '02');
 } else {
+    debugging('not all data is present!');
     $trx->addData('maySelectInvoice', true);
     $trx->addData('threeDSReqAuthMethod', '01');
 }
