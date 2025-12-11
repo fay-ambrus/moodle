@@ -5,7 +5,7 @@ require('../../config.php');
 require_once(__DIR__.'/src/config.php');
 require_once(__DIR__.'/src/SimplePayV21.php');
 require_once(__DIR__.'/src/billing_form.php');
-require_once(__DIR__.'/src/select_transaction_form.php');
+//require_once(__DIR__.'/src/select_transaction_form.php');
 
 require_login();
 
@@ -19,7 +19,7 @@ $PAGE->set_heading(get_string('title', 'local_simple_pay_demo'));
 
 global $USER;
 
-$select_transaction_form = new select_transaction_form();
+//$select_transaction_form = new select_transaction_form();
 //$select_transaction_form->display();
 
 // Fetch requests for a user.
