@@ -42,10 +42,10 @@ $config = [
     'SANDBOX' => true,
 
     // unique URL for events
-    'URLS_SUCCESS' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/success.php',   // url for successful payment
-    'URLS_FAIL' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/fail.php',         // url for unsuccessful
-    'URLS_CANCEL' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/cancel.php',     // url for cancell on payment page
-    'URLS_TIMEOUT' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/timeout.php',   // url for payment page timeout
+    'URLS_SUCCESS' => 'http://' . $_SERVER['HTTP_HOST'] . '/moodle/local/simple_pay_demo/pages/success.php',   // url for successful payment
+    'URLS_FAIL' => 'http://' . $_SERVER['HTTP_HOST'] . '/moodle/local/simple_pay_demo/pages/fail.php',         // url for unsuccessful
+    'URLS_CANCEL' => 'http://' . $_SERVER['HTTP_HOST'] . '/moodle/local/simple_pay_demo/pages/cancel.php',     // url for cancell on payment page
+    'URLS_TIMEOUT' => 'http://' . $_SERVER['HTTP_HOST'] . '/moodle/local/simple_pay_demo/pages/timeout.php',   // url for payment page timeout
 
     'GET_DATA' => (isset($_GET['r']) && isset($_GET['s'])) ? ['r' => $_GET['r'], 's' => $_GET['s']] : [],
     'POST_DATA' => $_POST,
