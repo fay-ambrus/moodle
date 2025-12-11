@@ -28,16 +28,16 @@
 
 $config = [
     //HUF
-    'HUF_MERCHANT' => "",            //merchant account ID (HUF)
-    'HUF_SECRET_KEY' => "",          //secret key for account ID (HUF)
+    'HUF_MERCHANT' => "PUBLICTESTHUF",                      //merchant account ID (HUF)
+    'HUF_SECRET_KEY' => "FxDa5w314kLlNseq2sKuVwaqZshZT5d6", //secret key for account ID (HUF)
 
     //EUR
-    'EUR_MERCHANT' => "",            //merchant account ID (EUR)
-    'EUR_SECRET_KEY' => "",          //secret key for account ID (EUR)
+    'EUR_MERCHANT' => "PUBLICTESTEUR",                      //merchant account ID (EUR)
+    'EUR_SECRET_KEY' => "9A2sDc7xh1JKW8r193RwW7X7X2ts837w", //secret key for account ID (EUR)
 
     //USD
-    'USD_MERCHANT' => "",            //merchant account ID (USD)
-    'USD_SECRET_KEY' => "",          //secret key for account ID (USD)
+    'USD_MERCHANT' => "PUBLICTESTUSD",                      //merchant account ID (USD)
+    'USD_SECRET_KEY' => "Aa9cDbHc1i2lLmN4z3C542zjXqZiDiCj", //secret key for account ID (USD)
 
     'SANDBOX' => true,
 
