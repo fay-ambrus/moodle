@@ -43,8 +43,7 @@ class billing_form extends \moodleform {
 	}
 
 	function validation($data, $files) {
-		if ($data['agreement'] != 'on') {
-            debugging($data['agreement']);
+		if ($data['agreement'] != 1) {
             return ['agreement' => get_string('required_agreement', 'local_simple_pay_demo')];
         }
         return [];
