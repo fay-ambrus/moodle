@@ -71,6 +71,8 @@ if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
         echo html_writer::empty_tag('br');
         echo var_export($returnData, true);
     }
+
+    $form->display();
 }
 // If billing data is present, then set it andproceed with the transaction
 else {
