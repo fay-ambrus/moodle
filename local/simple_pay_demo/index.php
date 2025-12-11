@@ -26,7 +26,10 @@ $trx->addConfig($config);
 $trx->addData('currency', 'HUF');
 $trx->addData('total', 25); // $trx->addItems-zel hozzá lehet adni résztételeket.
 
-$trx->addData('orderRef', str_replace(array('.', ':', '/'), "", @$_SERVER['SERVER_ADDR']) . @date("U", time()) . rand(1000, 9999));
+$orderRef = str_replace(array('.', ':', '/'), "", @$_SERVER['SERVER_ADDR']) . @date("U", time()) . rand(1000, 9999);
+debugging("Order ref: $orderRef");
+
+$trx->addData('orderRef', $orderRef);
 $trx->addData('customer', fullname($USER));
 $trx->addData('customerEmail', $USER->email);
 $trx->addData('language', 'EN');
