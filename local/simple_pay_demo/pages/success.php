@@ -32,7 +32,7 @@ echo html_writer::tag('h2', get_string('message_success', 'local_simple_pay_demo
 
 $link = new moodle_url('/local/simple_pay_demo/index.php');
 
-echo var_dump($result);
+//echo var_dump($result);
 
 echo html_writer::link($link, get_string('back', 'local_simple_pay_demo'));
 

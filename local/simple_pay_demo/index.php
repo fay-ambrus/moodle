@@ -36,7 +36,7 @@ $trx->addData('currency', 'HUF');
 $trx->addData('total', 25); // $trx->addItems-zel hozzá lehet adni résztételeket.
 
 $orderRef = str_replace(array('.', ':', '/'), "", @$_SERVER['SERVER_ADDR']) . @date("U", time()) . rand(1000, 9999);
-debugging("Order ref: $orderRef");
+//debugging("Order ref: $orderRef");
 
 $trx->addData('orderRef', $orderRef);
 $trx->addData('customer', fullname($USER));
