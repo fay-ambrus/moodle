@@ -42,7 +42,7 @@ $config = [
     'SANDBOX' => true,
 
     // unique URL for events
-    'URLS_SUCCESS' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/yourplugin/pages/success.php',        // url for successful payment
+    'URLS_SUCCESS' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/success.php',   // url for successful payment
     'URLS_FAIL' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/fail.php',         // url for unsuccessful
     'URLS_CANCEL' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/cancel.php',     // url for cancell on payment page
     'URLS_TIMEOUT' => 'http://' . $_SERVER['HTTP_HOST'] . '/local/simple_pay_demo/pages/timeout.php',   // url for payment page timeout

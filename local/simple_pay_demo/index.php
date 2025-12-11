@@ -59,11 +59,6 @@ if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
     }
 
     else if ($data = $form->get_data()) {
-        debugging($data->country);
-        debugging($data->city);
-        debugging($data->address);
-        debugging($data->zip);
-
         $trx->addGroupData('invoice', 'country', $data->country);
         $trx->addGroupData('invoice', 'state', $data->state);
         $trx->addGroupData('invoice', 'city', $data->city);
