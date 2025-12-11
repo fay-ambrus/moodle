@@ -61,4 +61,5 @@ $returnData = $trx->getReturnData();
 
 echo $OUTPUT->header();
 echo $trx->returnData['form'];
+echo $returnData;
 echo $OUTPUT->footer();
