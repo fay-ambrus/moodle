@@ -5,8 +5,11 @@ require('../../config.php');
 require_once(__DIR__.'/src/config.php');
 require_once(__DIR__.'/src/SimplePayV21.php');
 require_once(__DIR__.'/src/billing_form.php');
+require_once(__DIR__.'/src/select_transaction_form.php');
 
 require_login();
+
+session_start();
 
 $context = context_system::instance();
 $PAGE->set_context($context);
@@ -15,6 +18,12 @@ $PAGE->set_title(get_string('title', 'local_simple_pay_demo'));
 $PAGE->set_heading(get_string('title', 'local_simple_pay_demo'));
 
 global $USER;
+
+$select_transaction_form = new select_transaction_form();
+$select_transaction_form->display();
+
+// Fetch requests for a user.
+// $requests = $DB->get_records('local_simple_pay_demo', ['userid' => $userid]);
 
 // Error reporting
 error_reporting(E_ALL);
@@ -57,7 +66,7 @@ echo $OUTPUT->header();
 if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
     $form = new \local\simple_pay_demo\billing_form();
 
-    $form->display();
+    //$form->display();
 
     if ($form->is_cancelled()) {
         redirect(new moodle_url('/my/'));
