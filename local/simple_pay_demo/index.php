@@ -30,7 +30,7 @@ $trx->addData('orderRef', str_replace(array('.', ':', '/'), "", @$_SERVER['SERVE
 $trx->addData('customer', fullname($USER));
 $trx->addData('customerEmail', $USER->email);
 $trx->addData('language', 'EN');
-$trx->addData('timeout', @date("c", time() + 600));     // 10 minutes
+$trx->addData('timeout', @date("c", time() + 600)); // 10 minutes
 $trx->addData('methods', array('CARD', 'EAM'));
 
 // Add urls
@@ -54,6 +54,8 @@ echo $OUTPUT->header();
 if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
     $form = new \local\simple_pay_demo\billing_form();
 
+    $form->display();
+
     if ($form->is_cancelled()) {
         redirect(new moodle_url('/my/'));
     }
@@ -72,10 +74,7 @@ if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
         echo $trx->returnData['form'];
         echo html_writer::empty_tag('br');
         echo html_writer::empty_tag('br');
-        echo var_export($returnData, true);
     }
-
-    $form->display();
 }
 // If billing data is present, then set it andproceed with the transaction
 else {
@@ -90,7 +89,6 @@ else {
     echo $trx->returnData['form'];
     echo html_writer::empty_tag('br');
     echo html_writer::empty_tag('br');
-    echo var_export($returnData, true);
 }
 
 echo $OUTPUT->footer();
