@@ -27,7 +27,6 @@ class create_transaction_form extends \moodleform {
 		$mform->addElement('text', 'amount', get_string('amount', 'local_simple_pay_demo'));
 		$mform->setType('amount', PARAM_INT);
         $mform->addRule('amount', get_string('required_transaction', 'local_simple_pay_demo'), 'required');
-        $mform->addRule('amount', get_string('required_minimal_value', 'local_simple_pay_demo'), 'minvalue', 1);
         $mform->addRule('amount', 'Must be an integer', 'numeric');
 
 		// add submit button
