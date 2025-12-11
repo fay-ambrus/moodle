@@ -39,10 +39,7 @@ $trx->addGroupData('urls', 'timeout', $config['URLS_TIMEOUT']);
 
 // todo: itt miket kéne még, hogyan kéne még? valami törvényi előírással complyolni kell amúgy
 $trx->addGroupData('invoice', 'name', fullname($USER));
-if (isset($USER->country) && isset($USER->city) && isset($USER->address)) {
-    debugging('country: ' . $USER->country);
-    debugging('city: ' . $USER->city);
-    debugging('address: ' . $USER->address);
+if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
     $trx->addGroupData('invoice', 'country', $USER->country);
     $trx->addGroupData('invoice', 'city', $USER->city);
     $trx->addGroupData('invoice', 'address', $USER->address);
