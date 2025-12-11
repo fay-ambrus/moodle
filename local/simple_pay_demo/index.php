@@ -27,7 +27,6 @@ $trx->addData('orderRef', str_replace(array('.', ':', '/'), "", @$_SERVER['SERVE
 $trx->addData('customer', fullname($USER));
 $trx->addData('customerEmail', $USER->email);
 $trx->addData('language', 'EN');
-$trx->addData('threeDSReqAuthMethod', '02');
 $trx->addData('timeout', @date("c", time() + 600));     // 10 minutes
 $trx->addData('methods', array('CARD', 'EAM'));
 
@@ -46,8 +45,10 @@ if (!empty($USER->country) && !empty($USER->city) && !empty($USER->address)) {
     $trx->addGroupData('invoice', 'country', $USER->country);
     $trx->addGroupData('invoice', 'city', $USER->city);
     $trx->addGroupData('invoice', 'address', $USER->address);
+    $trx->addData('threeDSReqAuthMethod', '02');
 } else {
     $trx->addData('maySelectInvoice', true);
+    $trx->addData('threeDSReqAuthMethod', '01');
 }
 
 if (isset($USER->phone)) {
