@@ -4,11 +4,11 @@
         <TABLE NAME="local_simple_pay_demo" COMMENT="Payment requests">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User who must pay"/>
-                <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true" COMMENT="Amount to pay (in HUF)"/>
-                <FIELD NAME="description" TYPE="text" NOTNULL="false"/>
-                <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="pending"/>
-                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="User who must pay"/>
+                <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Amount to pay (in HUF)"/>
+                <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="pending"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
             </FIELDS>
             <KEYS>
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
