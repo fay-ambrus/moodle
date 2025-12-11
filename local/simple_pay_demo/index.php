@@ -20,7 +20,7 @@ $PAGE->set_heading(get_string('title', 'local_simple_pay_demo'));
 global $USER;
 
 $select_transaction_form = new select_transaction_form();
-$select_transaction_form->display();
+//$select_transaction_form->display();
 
 // Fetch requests for a user.
 // $requests = $DB->get_records('local_simple_pay_demo', ['userid' => $userid]);
@@ -66,7 +66,7 @@ echo $OUTPUT->header();
 if (empty($USER->country) || empty($USER->city) || empty($USER->address)) {
     $form = new \local\simple_pay_demo\billing_form();
 
-    //$form->display();
+    $form->display();
 
     if ($form->is_cancelled()) {
         redirect(new moodle_url('/my/'));
